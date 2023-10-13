@@ -3,7 +3,8 @@ const technicalskills = require('../Model/skill');
 exports.TechnicalSkill = async (req, res) => {
   try {
     const skills = await technicalskills.find({});
-    res.json(skills);
+    const skillset = skills.map(skill => skill.skill)
+    res.json(skillset);
 
   } catch (err) {
     console.error('Error retrieving technical skills:', err);
